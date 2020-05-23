@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CommonService {
 
+  private URL = "http://localhost:3000/users";
+
   constructor(private http: HttpClient) { }
 
-  createUser(){
-
+  createUser(user){
+    return this.http.post(this.URL, user);
   }
 
   updateUser(){
@@ -17,7 +19,7 @@ export class CommonService {
   }
 
   getUser(){
-
+    return this.http.get(this.URL);
   }
 
   deleteUser(){

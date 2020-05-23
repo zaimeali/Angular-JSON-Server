@@ -1,5 +1,32 @@
 {
-    "users": [
-        
-    ]
+  "users": [
+    {
+      "name": "zaime",
+      "mobile": "5115161616161",
+      "email": "zaimeali1997@gmail.com",
+      "password": "kfsbdfbs",
+      "id": 1
+    },
+    {
+      "name": "sfskjdksjk",
+      "mobile": "dfjsjdfks",
+      "email": "bskjdfbjskb@bjdfkjs.com",
+      "password": "jbksjbs",
+      "id": 2
+    },
+    {
+      "name": "nice",
+      "mobile": "very",
+      "email": "bsfs",
+      "password": "sbkdjbfjsb",
+      "id": 3
+    },
+    {
+      "name": "mmfbsjb",
+      "mobile": "abfkbasdjkf",
+      "email": "bkjfbkjsb",
+      "password": " kbskjfba",
+      "id": 4
+    }
+  ]
 }
