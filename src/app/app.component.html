@@ -1,10 +1,48 @@
 <div class="container">
-  <form>
+  <form #myForm="ngForm">
     <div class="form-group">
       <label for="fname">Full Name</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" ngModel name="name">
     </div>
+    <div class="form-group">
+      <label for="number">Mobile Number</label>
+      <input type="text" class="form-control" ngModel name="mobile">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" ngModel name="email">
+    </div>
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input type="password" class="form-control" ngModel name="password">
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="addUser(myForm.value)">Submit</button>
   </form>
+  <br>
+  <hr>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Mobile Number</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Full Name</td>
+        <td>Mobile Number</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 
