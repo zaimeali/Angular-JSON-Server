@@ -2,21 +2,24 @@
   <form #myForm="ngForm">
     <div class="form-group">
       <label for="fname">Full Name</label>
-      <input type="text" class="form-control" ngModel name="name">
+      <input type="text" class="form-control" [(ngModel)]="userObj.name" name="name">
     </div>
     <div class="form-group">
       <label for="number">Mobile Number</label>
-      <input type="text" class="form-control" ngModel name="mobile">
+      <input type="text" class="form-control" [(ngModel)]="userObj.mobile" name="mobile">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" ngModel name="email">
+      <input type="email" class="form-control" [(ngModel)]="userObj.email" name="email">
     </div>
     <div class="form-group">
       <label for="pass">Password</label>
-      <input type="password" class="form-control" ngModel name="password">
+      <input type="password" class="form-control" [(ngModel)]="userObj.password" name="password">
     </div>
-    <button class="btn btn-primary" type="submit" (click)="addUser(myForm.value)">Submit</button>
+    <button *ngIf="userObj.id === ''" class="btn btn-primary" type="submit" (click)="addUser(myForm.value)">Submit</button>
+    <button *ngIf="userObj.id !== ''" class="btn btn-success" type="button" (click)="updateUser()">Update</button>
+    &nbsp; &nbsp;
+    <button class="btn btn-info" type="submit" (click)="clear()">Reset</button>
   </form>
   <br>
   <hr>
@@ -38,8 +41,8 @@
         <td>{{ user.mobile }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.password }}</td>
-        <td><button class="btn btn-info">Edit</button></td>
-        <td><button class="btn btn-danger">Delete</button></td>
+        <td><button (click)="editUser(user)" class="btn btn-info">Edit</button></td>
+        <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
       </tr>
     </tbody>
   </table>

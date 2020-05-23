@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,15 @@ export class CommonService {
     return this.http.post(this.URL, user);
   }
 
-  updateUser(){
-
+  updateUser(user){
+    return this.http.put(this.URL + "/" + user.id, user);
   }
 
   getUser(){
     return this.http.get(this.URL);
   }
 
-  deleteUser(){
-
+  deleteUser(id: number){
+    return this.http.delete(this.URL + '/' + id);
   }
 }

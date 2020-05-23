@@ -12,6 +12,14 @@ export class AppComponent {
 
   users: Object;
 
+  userObj = {
+    name: '',
+    mobile: '',
+    email: '',
+    password: '',
+    id: ''
+  };
+
   constructor(private commonService: CommonService) { }
 
   ngOnInit() {
@@ -26,9 +34,37 @@ export class AppComponent {
     this.getLatestUser();
   }
 
+  updateUser(){
+    this.commonService.updateUser(this.userObj).subscribe((res) => {
+      console.log("User Updated");
+      this.getLatestUser();
+    });
+  }
+
   getLatestUser(){
     this.commonService.getUser().subscribe((data) => {
       this.users = data;
     });
+  }
+
+  deleteUser(id: number){
+    this.commonService.deleteUser(id).subscribe((res) => {
+      console.log("Deleted");
+      this.getLatestUser();
+    });
+  }
+
+  editUser(user){
+    this.userObj = user;
+  }
+
+  clear(){
+    this.userObj = {
+      name: '',
+      mobile: '',
+      email: '',
+      password: '',
+      id: ''
+    };
   }
 }
